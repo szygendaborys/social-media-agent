@@ -31,7 +31,7 @@ func CreateOpenAIClient() OpenAIClient {
 	}
 }
 
-func AskAI(c *OpenAIClient, params openai.ChatCompletionNewParams) (string, error) {
+func SendChatRequest(c *OpenAIClient, params openai.ChatCompletionNewParams) (string, error) {
 	chatCompletion, err := c.client.Chat.Completions.New(context.TODO(), params)
 
 	if err != nil {

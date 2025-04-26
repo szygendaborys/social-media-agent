@@ -1,4 +1,4 @@
-package agent
+package ai
 
 import (
 	"net/http"
@@ -6,7 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func AskAgentRoute(c *gin.Context) {
+func SendChatRequestRoute(c *gin.Context) {
 	var dto ConversationDto
 
 	if err := c.ShouldBindJSON(&dto); err != nil {

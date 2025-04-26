@@ -1,4 +1,4 @@
-package agent
+package ai
 
 type ConversationDto struct {
 	Query string `json:"query" binding:"required"`

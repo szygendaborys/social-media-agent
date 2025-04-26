@@ -5,7 +5,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
-	"github.com/szygendaborys/social-media-agent/internal/agent"
+	"github.com/szygendaborys/social-media-agent/internal/ai"
 	"github.com/szygendaborys/social-media-agent/internal/todo"
 )
 
@@ -25,7 +25,7 @@ func main() {
 	v1 := router.Group("/api/v1")
 
 	initTodosRoutes(v1)
-	initAgentRoutes(v1)
+	initAiRoutes(v1)
 
 	router.Run(":8080")
 }
@@ -35,6 +35,6 @@ func initTodosRoutes(r *gin.RouterGroup) {
 	r.POST("/todos", todo.CreateTodoRoute)
 }
 
-func initAgentRoutes(r *gin.RouterGroup) {
-	r.POST("/agent/ask-agent", agent.AskAgentRoute)
+func initAiRoutes(r *gin.RouterGroup) {
+	r.POST("/ai/send-chat-request", ai.SendChatRequestRoute)
 }

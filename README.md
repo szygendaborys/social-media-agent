@@ -12,7 +12,7 @@ This is a very basic example of a `smollm` hosted locally in the docker containe
 # How to use
 
 ```
-curl --location 'http://localhost:8080/api/v1/agent/ask-agent' \
+curl --location 'http://localhost:8080/api/v1/ai/send-chat-request' \
 --header 'Content-Type: application/json' \
 --data '{
   "query": "Hello AI!"

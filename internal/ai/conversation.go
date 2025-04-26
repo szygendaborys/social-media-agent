@@ -1,17 +1,16 @@
-package agent
+package ai
 
 import (
 	"github.com/openai/openai-go"
-	"github.com/szygendaborys/social-media-agent/internal/ai"
 )
 
 type Conversation struct {
-	client ai.OpenAIClient
+	client OpenAIClient
 	model  string
 }
 
 func InitConversation() Conversation {
-	client := ai.CreateOpenAIClient()
+	client := CreateOpenAIClient()
 
 	return Conversation{
 		client: client,
@@ -26,7 +25,7 @@ func (c *Conversation) askAI(q string) (string, error) {
 		openai.UserMessage(q),
 	}
 
-	return ai.AskAI(&c.client, openai.ChatCompletionNewParams{
+	return SendChatRequest(&c.client, openai.ChatCompletionNewParams{
 		Messages: messages,
 		Model:    c.model,
 	})
